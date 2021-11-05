@@ -4,7 +4,36 @@
 \alias{query_iedb}
 \title{Query IEDB}
 \usage{
-query_iedb()
+query_iedb(
+  structure_type = "Linear peptide",
+  source_organism_iris = "NCBITaxon:9606",
+  host_organism_iris = "NCBITaxon:9606",
+  assays,
+  mhc_restriction,
+  disease_names = "healthy"
+)
+}
+\arguments{
+\item{structure_type}{structure of the epitope.
+Possible values are "Linear peptide",
+as these are the names used at \url{http://www.iedb.org/}}
+
+\item{source_organism_iris}{the epitope source.
+Possible value is "NCBITaxon:9606", which denotes Homo sapiens}
+
+\item{host_organism_iris}{the host.
+Possible value is "NCBITaxon:9606", which denotes Homo sapiens}
+
+\item{assays}{one or more assays.
+Possible values are "B Cell", "MHC Ligand" and "T Cell",
+as these are the names used at \url{http://www.iedb.org/}}
+
+\item{mhc_restriction}{MHC restriction
+Possible values are "Any", "Class I",
+"Class II", "Non-classical" and a haplotype name}
+
+\item{disease_names}{disease names.
+Possible value is "healthy"}
 }
 \description{
 Query IEDB

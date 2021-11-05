@@ -178,3 +178,40 @@ t
 readr::write_csv(t, output_filename)
 testthat::expect_true(file.exists(output_filename))
 ```
+
+
+
+# Multiple quesies
+
+From https://github.com/IEDB/IQ-API-use-cases/blob/master/R/uniprot_reference_proteins.Rmd:
+
+Let's set the query string parameters.
+
+```
+params <- list()
+params[['parent_source_antigen_iri']] = 'like.UNIPROT*'
+params[['select']] = 'parent_source_antigen_id,parent_source_antigen_iri,parent_source_antigen_source_org_iri,parent_source_antigen_name'
+params[['offset']] = 0
+params[['order']] = 'parent_source_antigen_id'
+```
+
+Since I know there will be more than 10K records, we will need to fetch 1 page at a time
+and continue to append them onto our tibble.  **NOTE:** When paging through results by using an 'offset', it is critical to add an 'order' parameter to ensure that the pages are consistent between queries.
+
+To be good citizens, we also add a short 'sleep' in between calls to the API.
+```
+# initialize 'get_text' so we can page through the results
+get_text <- 'NA'
+full_tbl <- tibble()
+while(get_text != '[]') {
+  url <- paste(base_uri, 'antigen_search',sep='')
+  print(paste0("fetching offset: ",params[['offset']]))
+  get_1 = GET(url, query=params)
+  get_text = content(get_1,'text')
+  resp_tbl <- tibble(fromJSON(get_text))
+  full_tbl <- rbind(full_tbl, resp_tbl)
+  params[['offset']] = params[['offset']] + 10000
+  # sleep for 1 second between calls so as not to overload the server
+  Sys.sleep(1)
+}
+```

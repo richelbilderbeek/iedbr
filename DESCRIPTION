@@ -17,6 +17,9 @@ Depends:
 URL: https://github.com/richelbilderbeek/iedbr/
 BugReports: https://github.com/richelbilderbeek/iedbr/
 VignetteBuilder: knitr
+Imports:
+    httr,
+    purrr
 Suggests: 
     rmarkdown,
     knitr,
