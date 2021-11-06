@@ -16,7 +16,7 @@ all epitopes
 Get all epitopes from a B cell assay
 }
 \examples{
-get_all_b_cell_epitopes()
+get_all_t_cell_epitopes()
 }
 \author{
 Richèl J.C. Bilderbeek
