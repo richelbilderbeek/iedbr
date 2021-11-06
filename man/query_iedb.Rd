@@ -2,7 +2,7 @@
 % Please edit documentation in R/query_iedb.R
 \name{query_iedb}
 \alias{query_iedb}
-\title{Query IEDB's \code{epitope_search} table}
+\title{Query IEDB's table}
 \usage{
 query_iedb(query, table, verbose = FALSE)
 }
@@ -17,7 +17,7 @@ Use \link{check_query} to check if the \code{query} is valid}
 a \link[tibble]{tibble}
 }
 \description{
-Query IEDB's \code{epitope_search} table
+Query IEDB's table
 }
 \author{
 Richèl J.C. Bilderbeek

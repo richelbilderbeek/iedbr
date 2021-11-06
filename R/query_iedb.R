@@ -1,4 +1,4 @@
-#' Query IEDB's `epitope_search` table
+#' Query IEDB's table
 #' @inheritParams default_params_doc
 #' @return a \link[tibble]{tibble}
 #' @author Richèl J.C. Bilderbeek
@@ -9,6 +9,7 @@ query_iedb <- function(
   verbose = FALSE
 ) {
   iedbr::check_query(query)
+  iedbr::check_table(table)
   url <- paste0("https://query-api.iedb.org/", table)
   response <- httr::GET(url = url, query = query)
   query_results <- httr::content(response)
