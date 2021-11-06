@@ -1,15 +1,16 @@
-#' Query IEDB
+#' Query IEDB's `epitope_search` table
 #' @inheritParams default_params_doc
 #' @return a \link[tibble]{tibble}
 #' @author Richèl J.C. Bilderbeek
 #' @export
 query_iedb <- function(
   query,
+  table,
   verbose = FALSE
 ) {
   iedbr::check_query(query)
-  response <- httr::GET(url = 'https://query-api.iedb.org/epitope_search', query = query)
-  # response <- httr::GET(url = "https://query-api.iedb.org/epitope_search")
+  url <- paste0("https://query-api.iedb.org/", table)
+  response <- httr::GET(url = url, query = query)
   query_results <- httr::content(response)
   if (verbose) {
     message("Got ", length(query_results), " hits")

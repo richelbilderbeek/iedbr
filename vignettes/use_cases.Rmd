@@ -18,12 +18,18 @@ knitr::opts_chunk$set(
 library(iedbr)
 ```
 
+```{r good_to_go}
+good_to_go <- beastier::is_on_ci()
+```
+
+
+
 In healthy humans, 
 
  * Get all epitopes from all B cells
 
 ```{r}
-if (1 == 2) {
+if (good_to_go) {
   epitopes <- get_all_b_cell_epitopes() 
   head(epitopes)
 }
@@ -31,8 +37,24 @@ if (1 == 2) {
 
  * Get all epitopes from B cells of a certain MHC allele
  * Get all epitopes from all T cells
+ 
+```{r}
+if (good_to_go) {
+  epitopes <- get_all_t_cell_epitopes() 
+  head(epitopes)
+}
+```
+
  * Get all epitopes from T cells of a certain MHC allele
  * Get all epitopes from all MHC ligand assays
+
+```
+if (good_to_go) {
+  epitopes <- get_all_mhc_ligand_epitopes() 
+  head(epitopes)
+}
+```
+
  * Get all epitopes from MHC ligand assays of a certain MHC allele
 
 ```

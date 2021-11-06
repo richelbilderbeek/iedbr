@@ -1,27 +1,16 @@
-#' Internal function
-#'
-#' Get all epitopes from a B or T cell assay
+#' Get all epitopes from an MHC ligand assay
 #' @inheritParams default_params_doc
-#' @param b_cell_or_t_cell use "b_cell" for B cells
-#' and "t_cell" for T cells
 #' @return all epitopes
 #' @examples
-#' get_all_b_cell_epitopes()
+#' if (beastier::is_on_ci()) {
+#'   get_all_b_cell_epitopes()
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-get_all_b_or_t_cell_epitopes <- function(
-  b_cell_or_t_cell,
+get_all_mhc_ligand_epitopes <- function(
   verbose = FALSE
 ) {
-  testthat::expect_equal(length(b_cell_or_t_cell), 1)
-  testthat::expect_true(b_cell_or_t_cell %in% c("b_cell", "t_cell"))
   query <- iedbr::create_healthy_human_query()
-  if (b_cell_or_t_cell == "b_cell") {
-    query$bcell_ids <- "not.is.null"
-  } else {
-    testthat::expect_equal(b_cell_or_t_cell, "t_cell")
-    query$tcell_ids <- "not.is.null"
-  }
   query$select <- "linear_sequence"
   query_resultses <- list()
 
@@ -32,7 +21,7 @@ get_all_b_or_t_cell_epitopes <- function(
     }
     offset <- (i - 1) * 10000
     query$offset <- offset
-    query_results <- iedbr::query_epitope_search(query = query, verbose = verbose)
+    query_results <- iedbr::query_mhc_search(query = query, verbose = verbose)
     query_resultses[[i]] <- query_results
     if (verbose) {
       message(
