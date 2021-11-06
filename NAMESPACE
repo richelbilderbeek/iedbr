@@ -2,7 +2,10 @@
 
 export(check_disease_names)
 export(check_host_organism_iris)
+export(check_order)
+export(check_query)
 export(check_source_organism_iris)
 export(check_structure_type)
-export(create_query)
+export(create_healthy_human_query)
+export(get_all_b_cell_epitopes)
 export(query_iedb)
