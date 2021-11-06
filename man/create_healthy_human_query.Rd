@@ -26,6 +26,12 @@ Possible value is "NCBITaxon:9606", which denotes Homo sapiens}
 
 \item{disease_names}{disease names.
 Possible value is "healthy"}
+
+\item{order}{the item by which the query is ordered,
+as checked by \link{check_order}.
+For bigger queries (i.e. with more than 10k results),
+\code{order} is important to obtain each 10k set of results in
+the same manner.}
 }
 \description{
 Create a query for the IEDB for a linear peptide in a healthy human.

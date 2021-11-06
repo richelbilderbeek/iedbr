@@ -4,7 +4,10 @@
 \alias{get_all_b_cell_epitopes}
 \title{Get all epitopes from a B cell assay}
 \usage{
-get_all_b_cell_epitopes()
+get_all_b_cell_epitopes(verbose = FALSE)
+}
+\arguments{
+\item{verbose}{set to \link{TRUE} for more output}
 }
 \value{
 all epitopes

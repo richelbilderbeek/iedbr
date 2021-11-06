@@ -15,8 +15,14 @@ check_query <- function(query) {
   if ("host_organism_iris" %in% names(query)) {
     iedbr::check_host_organism_iris(query$host_organism_iris)
   }
+  if ("offset" %in% names(query)) {
+    iedbr::check_offset(query$offset)
+  }
   if ("order" %in% names(query)) {
     iedbr::check_order(query$order)
+  }
+  if ("select" %in% names(query)) {
+    iedbr::check_select(query$select)
   }
   if ("structure_type" %in% names(query)) {
     iedbr::check_structure_type(query$structure_type)

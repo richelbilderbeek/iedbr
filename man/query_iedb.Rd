@@ -7,7 +7,14 @@
 query_iedb(query, verbose = FALSE)
 }
 \arguments{
+\item{query}{an IEDB query,
+as created by, for example, \link{create_healthy_human_query}.
+Use \link{check_query} to check if the \code{query} is valid}
+
 \item{verbose}{set to \link{TRUE} for more output}
+}
+\value{
+a \link[tibble]{tibble}
 }
 \description{
 Query IEDB

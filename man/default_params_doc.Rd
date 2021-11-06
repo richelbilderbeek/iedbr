@@ -10,6 +10,9 @@ default_params_doc(
   disease_names,
   host_organism_iris,
   mhc_restriction,
+  order,
+  query,
+  select,
   source_organism_iris,
   structure_type,
   verbose
@@ -29,6 +32,19 @@ Possible value is "NCBITaxon:9606", which denotes Homo sapiens}
 \item{mhc_restriction}{MHC restriction
 Possible values are "Any", "Class I",
 "Class II", "Non-classical" and a haplotype name}
+
+\item{order}{the item by which the query is ordered,
+as checked by \link{check_order}.
+For bigger queries (i.e. with more than 10k results),
+\code{order} is important to obtain each 10k set of results in
+the same manner.}
+
+\item{query}{an IEDB query,
+as created by, for example, \link{create_healthy_human_query}.
+Use \link{check_query} to check if the \code{query} is valid}
+
+\item{select}{the fields that the query returns,
+as checked by \link{check_select}}
 
 \item{source_organism_iris}{the epitope source.
 Possible value is "NCBITaxon:9606", which denotes Homo sapiens}

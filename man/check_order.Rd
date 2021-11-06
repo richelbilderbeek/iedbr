@@ -6,6 +6,13 @@
 \usage{
 check_order(order)
 }
+\arguments{
+\item{order}{the item by which the query is ordered,
+as checked by \link{check_order}.
+For bigger queries (i.e. with more than 10k results),
+\code{order} is important to obtain each 10k set of results in
+the same manner.}
+}
 \value{
 nothing
 }

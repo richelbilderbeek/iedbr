@@ -6,6 +6,11 @@
 \usage{
 check_query(query)
 }
+\arguments{
+\item{query}{an IEDB query,
+as created by, for example, \link{create_healthy_human_query}.
+Use \link{check_query} to check if the \code{query} is valid}
+}
 \value{
 nothing
 }
