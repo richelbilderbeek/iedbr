@@ -1,0 +1,13 @@
+test_that("use", {
+  expect_silent(check_host_organism_iris("cs.{NCBITaxon:9606}"))
+  expect_error(check_host_organism_iris("nonsense"))
+  expect_error(check_host_organism_iris(NA))
+  expect_error(check_host_organism_iris(NULL))
+  expect_error(check_host_organism_iris(Inf))
+  expect_error(check_host_organism_iris(""))
+  expect_error(check_host_organism_iris(42))
+  expect_error(check_host_organism_iris(3.14))
+  expect_error(check_host_organism_iris(c()))
+  expect_error(check_host_organism_iris(list()))
+  expect_error(check_host_organism_iris(rep("eq.Linear peptide", 2)))
+})

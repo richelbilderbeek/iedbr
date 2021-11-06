@@ -8,6 +8,7 @@ documentation.}
 default_params_doc(
   assays,
   disease_names,
+  host_organism_iris,
   mhc_restriction,
   source_organism_iris,
   structure_type,
@@ -22,6 +23,9 @@ as these are the names used at \url{http://www.iedb.org/}}
 \item{disease_names}{disease names.
 Possible value is "healthy"}
 
+\item{host_organism_iris}{the host.
+Possible value is "NCBITaxon:9606", which denotes Homo sapiens}
+
 \item{mhc_restriction}{MHC restriction
 Possible values are "Any", "Class I",
 "Class II", "Non-classical" and a haplotype name}
@@ -34,10 +38,7 @@ as checked by \link{check_structure_type}.
 Possible values are "Linear peptide",
 as these are the names used at \url{http://www.iedb.org/}}
 
-\item{verbose}{set to TRUE for more output}
-
-\item{host_organism_iris}{the host.
-Possible value is "NCBITaxon:9606", which denotes Homo sapiens}
+\item{verbose}{set to \link{TRUE} for more output}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

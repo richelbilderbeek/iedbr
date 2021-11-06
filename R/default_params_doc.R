@@ -16,7 +16,7 @@
 #' as checked by \link{check_structure_type}.
 #' Possible values are "Linear peptide",
 #' as these are the names used at \url{http://www.iedb.org/}
-#' @param verbose set to TRUE for more output
+#' @param verbose set to \link{TRUE} for more output
 #' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
 #'   \code{@noRd}. This is not done, as this will disallow all
@@ -24,6 +24,7 @@
 default_params_doc <- function(
   assays,
   disease_names,
+  host_organism_iris,
   mhc_restriction,
   source_organism_iris,
   structure_type,

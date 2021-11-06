@@ -18,7 +18,7 @@ Check if the \code{source_organism_iris} is valid.
 Will \link{stop} if not
 }
 \examples{
-check_source_organism_iris("NCBITaxon:9606")
+check_source_organism_iris("cs.{NCBITaxon:9606}")
 }
 \author{
 Richèl J.C. Bilderbeek

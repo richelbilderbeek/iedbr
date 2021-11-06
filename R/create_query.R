@@ -1,25 +1,28 @@
-#' Query IEDB
+#' Create a query for the IEDB.
+#'
+#' Create a query for the IEDB.
+#' The parameters are in the same order as \url{http://www.iedb.org/}
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_query <- function(
-  structure_type = "Linear peptide",
-  source_organism_iris = "NCBITaxon:9606",
-  host_organism_iris = "NCBITaxon:9606",
+  structure_type = "eq.Linear peptide",
+  source_organism_iris = "cs.{NCBITaxon:9606}",
+  host_organism_iris = "cs.{NCBITaxon:9606}",
   assays,
   mhc_restriction,
-  disease_names = "healthy"
+  disease_names = "cs.{healthy}"
 ) {
   iedbr::check_structure_type(structure_type)
   iedbr::check_source_organism_iris(source_organism_iris)
-  testthat::expect_equal(host_organism_iris, "NCBITaxon:9606")
+  iedbr::check_host_organism_iris(host_organism_iris)
+  iedbr::check_disease_names(disease_names)
   testthat::expect_equal(length(assays), 1) # For now
-  testthat::expect_equal(disease_names, "healthy")
   params <- list(
-    structure_type = "eq.Linear peptide",
-    host_organism_iris = "cs.{NCBITaxon:9606}",
-    source_organism_iris = "cs.{NCBITaxon:9606}",
-    disease_names = "cs.{healthy}",
+    structure_type = structure_type,
+    host_organism_iris = host_organism_iris,
+    source_organism_iris = source_organism_iris,
+    disease_names = disease_names,
     order = "structure_iri"
   )
   #response <- httr::GET(url = 'https://query-api.iedb.org/epitope_search', query = params)

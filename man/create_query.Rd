@@ -2,15 +2,15 @@
 % Please edit documentation in R/create_query.R
 \name{create_query}
 \alias{create_query}
-\title{Query IEDB}
+\title{Create a query for the IEDB.}
 \usage{
 create_query(
-  structure_type = "Linear peptide",
-  source_organism_iris = "NCBITaxon:9606",
-  host_organism_iris = "NCBITaxon:9606",
+  structure_type = "eq.Linear peptide",
+  source_organism_iris = "cs.{NCBITaxon:9606}",
+  host_organism_iris = "cs.{NCBITaxon:9606}",
   assays,
   mhc_restriction,
-  disease_names = "healthy"
+  disease_names = "cs.{healthy}"
 )
 }
 \arguments{
@@ -37,7 +37,8 @@ Possible values are "Any", "Class I",
 Possible value is "healthy"}
 }
 \description{
-Query IEDB
+Create a query for the IEDB.
+The parameters are in the same order as \url{http://www.iedb.org/}
 }
 \author{
 Richèl J.C. Bilderbeek

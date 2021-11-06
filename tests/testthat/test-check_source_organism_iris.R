@@ -1,5 +1,5 @@
 test_that("use", {
-  expect_silent(check_source_organism_iris("NCBITaxon:9606"))
+  expect_silent(check_source_organism_iris("cs.{NCBITaxon:9606}"))
   expect_error(check_source_organism_iris("nonsense"))
   expect_error(check_source_organism_iris(""))
   expect_error(check_source_organism_iris(NA))
