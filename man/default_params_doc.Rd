@@ -10,6 +10,7 @@ default_params_doc(
   disease_names,
   host_organism_iris,
   mhc_restriction,
+  offset,
   order,
   query,
   select,
@@ -32,6 +33,13 @@ Possible value is "NCBITaxon:9606", which denotes Homo sapiens}
 \item{mhc_restriction}{MHC restriction
 Possible values are "Any", "Class I",
 "Class II", "Non-classical" and a haplotype name}
+
+\item{offset}{the offset of the results from a query,
+as checked by \link{check_offset}.
+A standard query uses an offset of zero
+and returns maximally \code{10000} results.
+To obtain the next results, an \code{offset} of \code{10000}
+is used.}
 
 \item{order}{the item by which the query is ordered,
 as checked by \link{check_order}.

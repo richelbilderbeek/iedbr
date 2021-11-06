@@ -6,6 +6,14 @@
 \usage{
 check_offset(offset)
 }
+\arguments{
+\item{offset}{the offset of the results from a query,
+as checked by \link{check_offset}.
+A standard query uses an offset of zero
+and returns maximally \code{10000} results.
+To obtain the next results, an \code{offset} of \code{10000}
+is used.}
+}
 \value{
 nothing
 }

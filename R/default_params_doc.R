@@ -10,6 +10,12 @@
 #' @param mhc_restriction MHC restriction
 #' Possible values are "Any", "Class I",
 #' "Class II", "Non-classical" and a haplotype name
+#' @param offset the offset of the results from a query,
+#' as checked by \link{check_offset}.
+#' A standard query uses an offset of zero
+#' and returns maximally `10000` results.
+#' To obtain the next results, an `offset` of `10000`
+#' is used.
 #' @param order the item by which the query is ordered,
 #' as checked by \link{check_order}.
 #' For bigger queries (i.e. with more than 10k results),
@@ -36,6 +42,7 @@ default_params_doc <- function(
   disease_names,
   host_organism_iris,
   mhc_restriction,
+  offset,
   order,
   query,
   select,
