@@ -2,7 +2,9 @@
 #' @inheritParams default_params_doc
 #' @return all epitopes
 #' @examples
-#' get_all_t_cell_epitopes()
+#' if (beastier::is_on_ci()) {
+#'   get_all_t_cell_epitopes()
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_all_t_cell_epitopes <- function(

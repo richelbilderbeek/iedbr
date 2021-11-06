@@ -17,6 +17,7 @@ URL: https://github.com/richelbilderbeek/iedbr/
 BugReports: https://github.com/richelbilderbeek/iedbr/
 VignetteBuilder: knitr
 Imports:
+    beastier,
     dplyr,
     httr,
     purrr,

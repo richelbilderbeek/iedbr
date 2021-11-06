@@ -16,7 +16,9 @@ all epitopes
 Get all epitopes from a B cell assay
 }
 \examples{
-get_all_b_cell_epitopes()
+if (beastier::is_on_ci()) {
+  get_all_b_cell_epitopes()
+}
 }
 \author{
 Richèl J.C. Bilderbeek
