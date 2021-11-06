@@ -1,0 +1,15 @@
+test_that("use", {
+  expect_silent(check_source_organism_iris("NCBITaxon:9606"))
+  expect_error(check_source_organism_iris("nonsense"))
+  expect_error(check_source_organism_iris(""))
+  expect_error(check_source_organism_iris(NA))
+  expect_error(check_source_organism_iris(NULL))
+  expect_error(check_source_organism_iris(42))
+  expect_error(check_source_organism_iris(3.14))
+  expect_error(check_source_organism_iris(Inf))
+  expect_error(check_source_organism_iris(c()))
+  expect_error(check_source_organism_iris(list()))
+  expect_error(
+    check_source_organism_iris(c("NCBITaxon:9606", "NCBITaxon:9606"))
+  )
+})

@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-query_iedb <- function(
+create_query <- function(
   structure_type = "Linear peptide",
   source_organism_iris = "NCBITaxon:9606",
   host_organism_iris = "NCBITaxon:9606",
@@ -10,8 +10,8 @@ query_iedb <- function(
   mhc_restriction,
   disease_names = "healthy"
 ) {
-  testthat::expect_equal(structure_type, "Linear peptide")
-  testthat::expect_equal(source_organism_iris, "NCBITaxon:9606")
+  iedbr::check_structure_type(structure_type)
+  iedbr::check_source_organism_iris(source_organism_iris)
   testthat::expect_equal(host_organism_iris, "NCBITaxon:9606")
   testthat::expect_equal(length(assays), 1) # For now
   testthat::expect_equal(disease_names, "healthy")

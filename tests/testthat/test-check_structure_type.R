@@ -1,0 +1,13 @@
+test_that("use", {
+  expect_silent(check_structure_type("eq.Linear peptide"))
+  expect_error(check_structure_type("nonsense"))
+  expect_error(check_structure_type(NA))
+  expect_error(check_structure_type(NULL))
+  expect_error(check_structure_type(Inf))
+  expect_error(check_structure_type(""))
+  expect_error(check_structure_type(42))
+  expect_error(check_structure_type(3.14))
+  expect_error(check_structure_type(c()))
+  expect_error(check_structure_type(list()))
+  expect_error(check_structure_type(rep("eq.Linear peptide", 2)))
+})
