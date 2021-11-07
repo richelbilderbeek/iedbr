@@ -11,6 +11,8 @@ get_all_mhc_ligand_epitopes <- function(
   verbose = FALSE
 ) {
   query <- iedbr::create_healthy_human_query()
+  query <- within(query, rm(host_organism_iris))
+  query <- within(query, rm(source_organism_iris))
   query$select <- "linear_sequence"
   query_results <- iedbr::query_mhc_search(query = query, verbose = verbose)
   query_results

@@ -52,10 +52,10 @@ query_iedb <- function(
     if (verbose) {
       message(
         "Query #", i, " ",
-        "resulted in ", length(query_resultses[[i]]), " hits"
+        "resulted in ", nrow(query_resultses[[i]]), " hits"
       )
     }
-    if (length(query_resultses[[i]]) < 10000) {
+    if (nrow(query_resultses[[i]]) < 10000) {
       break
     }
     i <- i + 1
