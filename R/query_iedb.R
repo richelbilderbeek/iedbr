@@ -35,11 +35,18 @@ query_iedb <- function(
       offset = offset,
       verbose = FALSE
     )
-    if (is_error_query_results(query_results)) {
-      query_results$hint
-      query_results$code
-      query_results$message
-      stop("Query failed")
+    if (iedbr::is_error_query_results(query_results)) {
+      stop(
+        "Query failed for query: \n",
+        " \n",
+        "{ \n",
+        paste0("  ", iedbr::query_to_str(query)),
+        "} \n",
+        " \n",
+        "IEDB message: ", query_results$message, " \n",
+        "IEDB error code: ", query_results$code, " \n",
+        "IEDB hint: ", query_results$hint, " \n"
+      )
     }
     query_resultses[[i]] <- query_results
     if (verbose) {
