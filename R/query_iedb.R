@@ -1,6 +1,13 @@
-#' Query IEDB's table
+#' Query the IEDB database
+#'
+#' Query the IEDB database.
 #' @inheritParams default_params_doc
-#' @return a \link[tibble]{tibble}
+#' @return a \link[tibble]{tibble} with as much rows as hits.
+#' @note The IEDB returns 10k hits per query.
+#' This means, to get the results of a query of more than 10k hits,
+#' the IEDB needs to be queried multiple times.
+#' \link{query_iedb} combines multiple calls to the IEDB,
+#' using \link{query_iedb_with_offset}.
 #' @author Richèl J.C. Bilderbeek
 #' @export
 query_iedb <- function(
@@ -10,14 +17,35 @@ query_iedb <- function(
 ) {
   iedbr::check_query(query)
   iedbr::check_table(table)
-  url <- paste0("https://query-api.iedb.org/", table)
-  response <- httr::GET(url = url, query = query)
-  query_results <- httr::content(response)
-  if (verbose) {
-    message("Got ", length(query_results), " hits")
-  }
-  # sleep for 1 second between calls so as not to overload the server
-  Sys.sleep(1)
+  iedbr::check_verbose(verbose)
 
-  query_results
+  # Let only 'query_iedb_with_offset' add the offset
+  testthat::expect_false("offset" %in% names(query))
+
+  query_resultses <- list()
+  i <- 1
+  while (1) {
+    if (verbose) {
+      message("Query #", i)
+    }
+    offset <- (i - 1) * 10000
+    query_results <- iedbr::query_iedb_with_offset(
+      query = query,
+      table = table,
+      offset = offset,
+      verbose = FALSE
+    )
+    query_resultses[[i]] <- query_results
+    if (verbose) {
+      message(
+        "Query #", i, " ",
+        "resulted in ", length(query_resultses[[i]]), " hits"
+      )
+    }
+    if (length(query_resultses[[i]]) < 10000) {
+      break
+    }
+    i <- i + 1
+  }
+  query_results <- dplyr::bind_rows(query_resultses)
 }

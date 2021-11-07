@@ -19,6 +19,7 @@ Will \link{stop} if not
 }
 \examples{
 check_select("linear_sequence")
+check_select(get_selectors()[1])
 }
 \author{
 Richèl J.C. Bilderbeek

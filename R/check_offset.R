@@ -13,5 +13,7 @@ check_offset <- function(offset) {
   testthat::expect_equal(length(offset), 1)
   testthat::expect_true(is.numeric(offset))
   testthat::expect_true(offset >= 0)
+  # Must be a whole number
+  testthat::expect_equal(0.0, abs(offset - round(offset)))
   invisible(offset)
 }
