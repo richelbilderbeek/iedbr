@@ -11,6 +11,9 @@ query_iedb(query, table, verbose = FALSE)
 as created by, for example, \link{create_healthy_human_query}.
 Use \link{check_query} to check if the \code{query} is valid}
 
+\item{table}{a IEDB database table,
+as checked by \link{check_table}}
+
 \item{verbose}{set to \link{TRUE} for more output}
 }
 \value{

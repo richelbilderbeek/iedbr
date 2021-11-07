@@ -6,6 +6,10 @@
 \usage{
 check_table(table)
 }
+\arguments{
+\item{table}{a IEDB database table,
+as checked by \link{check_table}}
+}
 \value{
 nothing
 }

@@ -35,6 +35,12 @@ query_iedb <- function(
       offset = offset,
       verbose = FALSE
     )
+    if (is_error_query_results(query_results)) {
+      query_results$hint
+      query_results$code
+      query_results$message
+      stop("Query failed")
+    }
     query_resultses[[i]] <- query_results
     if (verbose) {
       message(

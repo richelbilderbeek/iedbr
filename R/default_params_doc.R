@@ -24,6 +24,8 @@
 #' @param query an IEDB query,
 #' as created by, for example, \link{create_healthy_human_query}.
 #' Use \link{check_query} to check if the `query` is valid
+#' @param query_results the results of a query
+#' (e.g. a call to \link{query_iedb}) as a \link[tibble]{tibble}
 #' @param select the fields that the query returns,
 #' as checked by \link{check_select}
 #' @param source_organism_iris the epitope source.
@@ -32,6 +34,8 @@
 #' as checked by \link{check_structure_type}.
 #' Possible values are "Linear peptide",
 #' as these are the names used at \url{http://www.iedb.org/}
+#' @param table a IEDB database table,
+#' as checked by \link{check_table}
 #' @param verbose set to \link{TRUE} for more output
 #' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
@@ -45,9 +49,11 @@ default_params_doc <- function(
   offset,
   order,
   query,
+  query_results,
   select,
   source_organism_iris,
   structure_type,
+  table,
   verbose
 ) {
   # Nothing

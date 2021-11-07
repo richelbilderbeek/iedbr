@@ -11,6 +11,9 @@ query_iedb_with_offset(query, table, offset = 0, verbose = FALSE)
 as created by, for example, \link{create_healthy_human_query}.
 Use \link{check_query} to check if the \code{query} is valid}
 
+\item{table}{a IEDB database table,
+as checked by \link{check_table}}
+
 \item{offset}{the offset of the results from a query,
 as checked by \link{check_offset}.
 A standard query uses an offset of zero

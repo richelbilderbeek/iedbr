@@ -13,9 +13,11 @@ default_params_doc(
   offset,
   order,
   query,
+  query_results,
   select,
   source_organism_iris,
   structure_type,
+  table,
   verbose
 )
 }
@@ -51,6 +53,9 @@ the same manner.}
 as created by, for example, \link{create_healthy_human_query}.
 Use \link{check_query} to check if the \code{query} is valid}
 
+\item{query_results}{the results of a query
+(e.g. a call to \link{query_iedb}) as a \link[tibble]{tibble}}
+
 \item{select}{the fields that the query returns,
 as checked by \link{check_select}}
 
@@ -61,6 +66,9 @@ Possible value is "NCBITaxon:9606", which denotes Homo sapiens}
 as checked by \link{check_structure_type}.
 Possible values are "Linear peptide",
 as these are the names used at \url{http://www.iedb.org/}}
+
+\item{table}{a IEDB database table,
+as checked by \link{check_table}}
 
 \item{verbose}{set to \link{TRUE} for more output}
 }
