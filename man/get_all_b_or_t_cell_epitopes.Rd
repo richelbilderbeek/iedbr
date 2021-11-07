@@ -19,7 +19,10 @@ all epitopes
 Get all epitopes from a B or T cell assay
 }
 \examples{
-get_all_b_cell_epitopes()
+if (!beastier::is_on_ci()) {
+  get_all_b_or_t_cell_epitopes(b_cell_or_t_cell = "b_cell")
+  get_all_b_or_t_cell_epitopes(b_cell_or_t_cell = "t_cell")
+}
 }
 \author{
 Richèl J.C. Bilderbeek
