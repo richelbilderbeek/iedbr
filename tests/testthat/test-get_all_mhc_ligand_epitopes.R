@@ -1,7 +1,7 @@
 test_that("use", {
   expect_equal(1 + 1, 2) # To prevent 'empty test' testthat message
   if (!pureseqtmr::is_on_ci()) return()
-  epitopes <- get_all_mhc_ligand_epitopes(verbose = TRUE)
+  epitopes <- get_all_mhc_ligand_epitopes()
   expect_true(length(epitopes) > 7000) # ? at 2021-11-06 12:27
 })
 
