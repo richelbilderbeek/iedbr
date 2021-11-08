@@ -30,3 +30,16 @@ test_that("use, MHC ligand with haplotype", {
   expect_true(tibble::is_tibble(t))
   expect_true(nrow(t) > 30) # 40 on 2021-11-08 10:29 Stockholm time
 })
+
+test_that("use, reference_search for mhc_allele_names", {
+  # Try to get a list of all valid MHC alleles
+  skip("Unsure")
+  query <- list()
+  query$mhc_allele_names <- "not.is.null"
+  query$order <- "structure_iri"
+  query$select <- "mhc_allele_names"
+  t <- query_iedb_with_offset(query = query, table = "reference_search")
+  t$details
+  expect_true(tibble::is_tibble(t))
+  expect_true(nrow(t) > 30) # 40 on 2021-11-08 10:29 Stockholm time
+})

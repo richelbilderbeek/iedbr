@@ -22,8 +22,6 @@ library(iedbr)
 good_to_go <- pureseqtmr::is_on_ci()
 ```
 
-
-
 In healthy humans, 
 
  * Get all epitopes from all B cells
@@ -72,6 +70,13 @@ if (good_to_go) {
 ```
 
  * Get all epitopes from MHC ligand assays of a certain MHC allele
+
+```{r}
+if (good_to_go) {
+  epitopes <- get_all_mhc_ligand_epitopes(mhc_allele_name = "HLA-A*01:01")
+  head(epitopes)
+}
+```
 
 ```
 require(httr)

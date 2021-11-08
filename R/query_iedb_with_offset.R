@@ -16,7 +16,7 @@ query_iedb_with_offset <- function(
   offset = 0,
   verbose = FALSE
 ) {
-  iedbr::check_query(query)
+  # iedbr::check_query(query)
   iedbr::check_table(table)
   iedbr::check_offset(offset)
   iedbr::check_verbose(verbose)
@@ -25,7 +25,7 @@ query_iedb_with_offset <- function(
   testthat::expect_false("offset" %in% names(query))
   query$offset <- offset
   testthat::expect_true("offset" %in% names(query))
-  iedbr::check_query(query)
+  # iedbr::check_query(query)
 
   url <- paste0("https://query-api.iedb.org/", table)
   response <- httr::GET(url = url, query = query)

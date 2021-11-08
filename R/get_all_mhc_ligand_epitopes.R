@@ -19,14 +19,15 @@ get_all_mhc_ligand_epitopes <- function(
   mhc_allele_name = "all",
   verbose = FALSE
 ) {
+  host_organism_iris <- NULL; rm(host_organism_iris) # nolint, fixes warning: no visible binding for global variable
+  source_organism_iris <- NULL; rm(source_organism_iris) # nolint, fixes warning: no visible binding for global variable
+
   query <- iedbr::create_healthy_human_query()
   query <- within(query, rm(host_organism_iris))
   query <- within(query, rm(source_organism_iris))
   query$select <- "linear_sequence"
   if (mhc_allele_name != "all") {
     query$select <- "linear_sequence, mhc_allele_name"
-    # iedbr::check_mhc_allele_names(mhc_allele_names)
-    # query$mhc_allele_names <- mhc_allele_names
   }
   query_results <- iedbr::query_mhc_search(
     query = query,
