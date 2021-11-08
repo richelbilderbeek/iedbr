@@ -29,13 +29,27 @@ query_iedb_with_offset <- function(
 
   url <- paste0("https://query-api.iedb.org/", table)
   response <- httr::GET(url = url, query = query)
-  query_results <- httr::content(response)
+
+  #'dplyr::bind_rows' converts the list into a tibble
+  query_results <- dplyr::bind_rows(httr::content(response))
+  tryCatch(
+    iedbr::check_error_query_results(query_results),
+    error = function(e) {
+      stop(
+        "Query failed for query: \n",
+        " \n",
+        paste0("  ", iedbr::query_to_str(query)),
+        " \n",
+        "error message: ", e$message
+      )
+    }
+  )
+  testthat::expect_false(iedbr::is_error_query_results(query_results))
   if (verbose) {
-    message("Got ", length(query_results), " hits")
+    message("Got ", nrow(query_results), " hits")
   }
   # sleep for 1 second between calls so as not to overload the server
   Sys.sleep(1)
 
-  # Converts a list into a tibble
-  dplyr::bind_rows(query_results)
+  query_results
 }

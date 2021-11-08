@@ -4,7 +4,11 @@
 \alias{get_all_b_or_t_cell_epitopes}
 \title{Internal function}
 \usage{
-get_all_b_or_t_cell_epitopes(b_cell_or_t_cell, verbose = FALSE)
+get_all_b_or_t_cell_epitopes(
+  b_cell_or_t_cell,
+  mhc_allele_names,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{b_cell_or_t_cell}{use "b_cell" for B cells

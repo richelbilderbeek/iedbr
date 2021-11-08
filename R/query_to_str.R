@@ -17,5 +17,10 @@ query_to_str <- function(query) {
   }
   # Get rid of the last comma
   s[[n]] <- stringr::str_replace(s[[n]], ", \n", " \n")
-  unlist(s)
+  text <- c(
+    "{ \n",
+    paste0("  ", unlist(s)),
+    "} \n"
+  )
+  text
 }

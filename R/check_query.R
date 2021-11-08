@@ -15,6 +15,9 @@ check_query <- function(query) {
   if ("host_organism_iris" %in% names(query)) {
     iedbr::check_host_organism_iris(query$host_organism_iris)
   }
+  if ("mhc_allele_names" %in% names(query)) {
+    iedbr::check_mhc_allele_names(query$mhc_allele_names)
+  }
   if ("offset" %in% names(query)) {
     iedbr::check_offset(query$offset)
   }

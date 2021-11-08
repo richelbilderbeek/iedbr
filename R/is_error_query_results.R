@@ -7,13 +7,26 @@
 #' @return
 #'   * \link{TRUE} if the `query_results` is an error result.
 #'   * \link{FALSE} if the `query_results` is not error result.
-#'
-#' Will \link{stop} if `query_results` is invalid
 #' @examples
 #' is_error_query_results(get_test_query_results_error())
 #' @author Richèl J.C. Bilderbeek
 #' @export
-is_error_query_results <- function(query_results) {
-  testthat::expect_true(tibble::is_tibble(query_results))
-  "hint" %in% names(query_results)
+is_error_query_results <- function(
+  query_results,
+  verbose = FALSE
+) {
+  iedbr::check_verbose(verbose)
+  result <- FALSE
+  tryCatch({
+    iedbr::check_error_query_results(
+      query_results = query_results
+    )
+    result <- TRUE
+  }, error = function(e) {
+    if (verbose) message(e$message)
+  }
+  )
+  # 'result' determines if there is no error.
+  # In this case, we are interested if there is an error
+  !result
 }

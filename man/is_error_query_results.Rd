@@ -4,19 +4,19 @@
 \alias{is_error_query_results}
 \title{Determine if the \code{query_results} is an error result}
 \usage{
-is_error_query_results(query_results)
+is_error_query_results(query_results, verbose = FALSE)
 }
 \arguments{
 \item{query_results}{the results of a query
 (e.g. a call to \link{query_iedb}) as a \link[tibble]{tibble}}
+
+\item{verbose}{set to \link{TRUE} for more output}
 }
 \value{
 \itemize{
 \item \link{TRUE} if the \code{query_results} is an error result.
 \item \link{FALSE} if the \code{query_results} is not error result.
 }
-
-Will \link{stop} if \code{query_results} is invalid
 }
 \description{
 Determine if the \code{query_results} is an error result,

@@ -36,6 +36,14 @@ if (good_to_go) {
 ```
 
  * Get all epitopes from B cells of a certain MHC allele
+
+```
+if (good_to_go) {
+  epitopes <- get_all_b_cell_epitopes(haplotype = ) 
+  head(epitopes)
+}
+```
+
  * Get all epitopes from all T cells
  
 ```{r}
@@ -48,7 +56,7 @@ if (good_to_go) {
  * Get all epitopes from T cells of a certain MHC allele
  * Get all epitopes from all MHC ligand assays
 
-```
+```{r}
 if (good_to_go) {
   epitopes <- get_all_mhc_ligand_epitopes() 
   head(epitopes)

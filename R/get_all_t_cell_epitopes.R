@@ -8,7 +8,12 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_all_t_cell_epitopes <- function(
+  mhc_allele_names = "all",
   verbose = FALSE
 ) {
-  iedbr::get_all_b_or_t_cell_epitopes(b_cell_or_t_cell = "t_cell")
+  iedbr::get_all_b_or_t_cell_epitopes(
+    b_cell_or_t_cell = "t_cell",
+    mhc_allele_names = mhc_allele_names,
+    verbose = verbose
+  )
 }

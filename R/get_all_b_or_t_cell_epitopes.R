@@ -14,6 +14,7 @@
 #' @export
 get_all_b_or_t_cell_epitopes <- function(
   b_cell_or_t_cell,
+  mhc_allele_names,
   verbose = FALSE
 ) {
   testthat::expect_equal(length(b_cell_or_t_cell), 1)
@@ -26,6 +27,9 @@ get_all_b_or_t_cell_epitopes <- function(
     query$tcell_ids <- "not.is.null"
   }
   query$select <- "linear_sequence"
+  if (mhc_allele_names != "all") {
+    query$mhc_allele_names <- paste0("cs.{", mhc_allele_names, "}")
+  }
   query_results <- iedbr::query_epitope_search(
     query = query,
     verbose = verbose
