@@ -19,7 +19,7 @@ library(iedbr)
 ```
 
 ```{r good_to_go}
-good_to_go <- beastier::is_on_ci()
+good_to_go <- pureseqtmr::is_on_ci()
 ```
 
 

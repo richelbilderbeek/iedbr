@@ -9,7 +9,7 @@
 #'  * use \link{get_all_t_cell_epitopes}
 #'    to get all epitopes from a T cell assay
 #' @examples
-#' if (beastier::is_on_ci()) {
+#' if (pureseqtmr::is_on_ci()) {
 #'   get_all_mhc_ligand_epitopes()
 #'   get_all_mhc_ligand_epitopes(mhc_allele_name = "cs.{HLA-A*01:01}")
 #' }

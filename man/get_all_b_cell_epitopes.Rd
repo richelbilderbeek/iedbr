@@ -18,7 +18,7 @@ all epitopes
 Get all epitopes from a B cell assay
 }
 \examples{
-if (beastier::is_on_ci()) {
+if (pureseqtmr::is_on_ci()) {
   get_all_b_cell_epitopes()
   get_all_b_cell_epitopes(mhc_allele_names = "cs.{HLA-A*01:01}")
 }
