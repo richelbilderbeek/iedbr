@@ -3,6 +3,8 @@ test_that("use", {
   if (!pureseqtmr::is_on_ci()) return()
   epitopes <- get_all_mhc_ligand_epitopes()
   expect_true(length(epitopes) > 7000) # ? at 2021-11-06 12:27
+  expect_true(is.character(epitopes))
+  expect_false(tibble::is_tibble(epitopes))
 })
 
 test_that("use", {
@@ -10,4 +12,21 @@ test_that("use", {
   if (!pureseqtmr::is_on_ci()) return()
   epitopes <- get_all_mhc_ligand_epitopes(mhc_allele_name = "HLA-A*01:01")
   expect_true(length(epitopes) > 15) # 23 at 2021-11-08 13:30 Stockholm time
+  expect_true(is.character(epitopes))
+  expect_false(tibble::is_tibble(epitopes))
 })
+
+
+test_that("Use case 1a", {
+  expect_equal(1 + 1, 2) # To prevent 'empty test' testthat message
+  if (!pureseqtmr::is_on_ci()) return()
+  query <- list(
+    linear_sequence = "eq.SIINFEKL",
+    order = "structure_iri"
+  )
+  query_iedb_with_offset(
+    query = query,
+    table = "epitope_search"
+  )
+})
+

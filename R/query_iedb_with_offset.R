@@ -16,7 +16,7 @@ query_iedb_with_offset <- function(
   offset = 0,
   verbose = FALSE
 ) {
-  # iedbr::check_query(query)
+  iedbr::check_query(query)
   iedbr::check_table(table)
   iedbr::check_offset(offset)
   iedbr::check_verbose(verbose)
@@ -29,9 +29,25 @@ query_iedb_with_offset <- function(
 
   url <- paste0("https://query-api.iedb.org/", table)
   response <- httr::GET(url = url, query = query)
-
+  response_content <- httr::content(response)
+  #names(response_content[[1]])
+  # Try to put this into a tibble, return a list if that fails
   # 'dplyr::bind_rows' converts the list into a tibble
-  query_results <- dplyr::bind_rows(httr::content(response))
+  query_results <- NA
+  tryCatch(
+    query_results <- dplyr::bind_rows(response_content),
+    error = function(e) {
+      message(
+        "Query resulted in a non-tibbleable list, ",
+        "returning the raw list instad"
+      )
+    }
+  )
+  # Too bad, cannot make that messy list into a tibble
+  if (length(query_results) == 1 && is.na(query_results)) {
+    return(response_content)
+  }
+
   tryCatch(
     iedbr::check_error_query_results(query_results),
     error = function(e) {

@@ -43,3 +43,41 @@ test_that("use, reference_search for mhc_allele_names", {
   expect_true(tibble::is_tibble(t))
   expect_true(nrow(t) > 30) # 40 on 2021-11-08 10:29 Stockholm time
 })
+
+
+test_that("use case 1a, for offset", {
+  # Try to get a list of all valid MHC alleles
+  skip("Unsure")
+  query <- list(
+    linear_sequence = "eq.SIINFEKL",
+    order = "structure_iri"
+  )
+  t <- query_iedb_with_offset(
+    query = query,
+    table = "epitope_search"
+  )
+  expect_false(tibble::is_tibble(t))
+  length(t)
+  unlist(t[[1]])
+
+  expect_true(length(t) > 2) # 3 on 2021-11-08 19:38 Stockholm time
+})
+
+test_that("use case 1a, no offset", {
+  # Try to get a list of all valid MHC alleles
+  skip("Unsure")
+  query <- list(
+    linear_sequence = "eq.SIINFEKL",
+    order = "structure_iri"
+  )
+  t <- query_iedb(
+    query = query,
+    table = "epitope_search",
+    verbose = TRUE
+  )
+  expect_false(tibble::is_tibble(t))
+  length(t)
+  unlist(t[[1]])
+
+  expect_true(length(t) > 2) # 3 on 2021-11-08 19:38 Stockholm time
+})

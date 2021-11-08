@@ -10,3 +10,6 @@ R package to query the Immune Epitope Database
 # Links
 
 * [The IEDB swagger documentation](https://query-api.iedb.org/docs/swagger/#/antigen_to_bcell/get_antigen_to_bcell)
+* PostgREST documentation: [https://postgrest.org](https://postgrest.org)
+
+
