@@ -6,6 +6,9 @@
 \usage{
 check_mhc_allele_names(mhc_allele_names)
 }
+\arguments{
+\item{mhc_allele_names}{names of one or more MHC alleles}
+}
 \value{
 nothing
 }

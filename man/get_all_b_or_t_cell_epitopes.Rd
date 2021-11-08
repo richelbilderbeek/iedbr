@@ -6,13 +6,15 @@
 \usage{
 get_all_b_or_t_cell_epitopes(
   b_cell_or_t_cell,
-  mhc_allele_names,
+  mhc_allele_names = "all",
   verbose = FALSE
 )
 }
 \arguments{
 \item{b_cell_or_t_cell}{use "b_cell" for B cells
 and "t_cell" for T cells}
+
+\item{mhc_allele_names}{names of one or more MHC alleles}
 
 \item{verbose}{set to \link{TRUE} for more output}
 }

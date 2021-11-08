@@ -30,7 +30,7 @@ query_iedb_with_offset <- function(
   url <- paste0("https://query-api.iedb.org/", table)
   response <- httr::GET(url = url, query = query)
 
-  #'dplyr::bind_rows' converts the list into a tibble
+  # 'dplyr::bind_rows' converts the list into a tibble
   query_results <- dplyr::bind_rows(httr::content(response))
   tryCatch(
     iedbr::check_error_query_results(query_results),

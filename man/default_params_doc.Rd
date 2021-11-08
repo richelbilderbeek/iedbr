@@ -9,6 +9,8 @@ default_params_doc(
   assays,
   disease_names,
   host_organism_iris,
+  mhc_allele_name,
+  mhc_allele_names,
   mhc_restriction,
   offset,
   order,
@@ -31,6 +33,10 @@ Possible value is "healthy"}
 
 \item{host_organism_iris}{the host.
 Possible value is "NCBITaxon:9606", which denotes Homo sapiens}
+
+\item{mhc_allele_name}{name of an MHC allele}
+
+\item{mhc_allele_names}{names of one or more MHC alleles}
 
 \item{mhc_restriction}{MHC restriction
 Possible values are "Any", "Class I",

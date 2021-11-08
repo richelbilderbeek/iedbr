@@ -4,9 +4,11 @@
 \alias{get_all_b_cell_epitopes}
 \title{Get all epitopes from a B cell assay}
 \usage{
-get_all_b_cell_epitopes(verbose = FALSE)
+get_all_b_cell_epitopes(mhc_allele_names = "all", verbose = FALSE)
 }
 \arguments{
+\item{mhc_allele_names}{names of one or more MHC alleles}
+
 \item{verbose}{set to \link{TRUE} for more output}
 }
 \value{
@@ -18,6 +20,17 @@ Get all epitopes from a B cell assay
 \examples{
 if (beastier::is_on_ci()) {
   get_all_b_cell_epitopes()
+  get_all_b_cell_epitopes(mhc_allele_names = "cs.{HLA-A*01:01}")
+}
+}
+\seealso{
+\itemize{
+\item use \link{get_all_b_cell_epitopes}
+to get all epitopes from a B cell assay
+\item use \link{get_all_mhc_ligand_epitopes}
+to get all epitopes from an MHC ligand assay
+\item use \link{get_all_t_cell_epitopes}
+to get all epitopes from a T cell assay
 }
 }
 \author{

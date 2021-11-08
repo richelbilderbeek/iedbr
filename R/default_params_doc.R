@@ -7,6 +7,8 @@
 #' Possible value is "healthy"
 #' @param host_organism_iris the host.
 #' Possible value is "NCBITaxon:9606", which denotes Homo sapiens
+#' @param mhc_allele_name name of an MHC allele
+#' @param mhc_allele_names names of one or more MHC alleles
 #' @param mhc_restriction MHC restriction
 #' Possible values are "Any", "Class I",
 #' "Class II", "Non-classical" and a haplotype name
@@ -45,6 +47,8 @@ default_params_doc <- function(
   assays,
   disease_names,
   host_organism_iris,
+  mhc_allele_name,
+  mhc_allele_names,
   mhc_restriction,
   offset,
   order,

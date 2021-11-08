@@ -1,6 +1,13 @@
 #' Get all epitopes from a B cell assay
 #' @inheritParams default_params_doc
 #' @return all epitopes
+#' @seealso
+#'  * use \link{get_all_b_cell_epitopes}
+#'    to get all epitopes from a B cell assay
+#'  * use \link{get_all_mhc_ligand_epitopes}
+#'    to get all epitopes from an MHC ligand assay
+#'  * use \link{get_all_t_cell_epitopes}
+#'    to get all epitopes from a T cell assay
 #' @examples
 #' if (beastier::is_on_ci()) {
 #'   get_all_t_cell_epitopes()
