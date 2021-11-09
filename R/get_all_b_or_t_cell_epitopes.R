@@ -37,5 +37,9 @@ get_all_b_or_t_cell_epitopes <- function(
     max_n_queries = max_n_queries,
     verbose = verbose
   )
+  if (nrow(query_results) == 0) {
+    as.character(c())
+    return(as.character(c()))
+  }
   tibble::deframe(query_results)
 }
