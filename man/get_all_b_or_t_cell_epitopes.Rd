@@ -14,7 +14,7 @@ get_all_b_or_t_cell_epitopes(
 \item{b_cell_or_t_cell}{use "b_cell" for B cells
 and "t_cell" for T cells}
 
-\item{mhc_allele_names}{names of one or more MHC alleles}
+\item{mhc_allele_names}{names of one or more MHC allele names}
 
 \item{verbose}{set to \link{TRUE} for more output}
 }

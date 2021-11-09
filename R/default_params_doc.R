@@ -8,7 +8,9 @@
 #' @param host_organism_iris the host.
 #' Possible value is "NCBITaxon:9606", which denotes Homo sapiens
 #' @param mhc_allele_name name of an MHC allele
-#' @param mhc_allele_names names of one or more MHC alleles
+#' @param mhc_allele_names names of one or more MHC allele names
+#' @param mhc_allele_names_regex a regular expression for
+#' a 'PostgREST' expression to select zero, one or more MHC allele names
 #' @param mhc_restriction MHC restriction
 #' Possible values are "Any", "Class I",
 #' "Class II", "Non-classical" and a haplotype name
@@ -49,6 +51,7 @@ default_params_doc <- function(
   host_organism_iris,
   mhc_allele_name,
   mhc_allele_names,
+  mhc_allele_names_regex,
   mhc_restriction,
   offset,
   order,

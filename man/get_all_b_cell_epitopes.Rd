@@ -7,7 +7,7 @@
 get_all_b_cell_epitopes(mhc_allele_names = "all", verbose = FALSE)
 }
 \arguments{
-\item{mhc_allele_names}{names of one or more MHC alleles}
+\item{mhc_allele_names}{names of one or more MHC allele names}
 
 \item{verbose}{set to \link{TRUE} for more output}
 }

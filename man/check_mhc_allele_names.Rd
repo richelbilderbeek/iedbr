@@ -4,10 +4,16 @@
 \alias{check_mhc_allele_names}
 \title{Check if the \code{mhc_allele_names} is valid.}
 \usage{
-check_mhc_allele_names(mhc_allele_names)
+check_mhc_allele_names(
+  mhc_allele_names,
+  mhc_allele_names_regex = "(cs)\\\\.\\\\{(HLA-.*)\\\\}"
+)
 }
 \arguments{
-\item{mhc_allele_names}{names of one or more MHC alleles}
+\item{mhc_allele_names}{names of one or more MHC allele names}
+
+\item{mhc_allele_names_regex}{a regular expression for
+a 'PostgREST' expression to select zero, one or more MHC allele names}
 }
 \value{
 nothing
