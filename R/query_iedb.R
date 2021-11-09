@@ -26,7 +26,7 @@ query_iedb <- function(
   i <- 1
   while (1) {
     if (verbose) {
-      message("Query #", i)
+      message("Query #", i, " started at ", Sys.time())
     }
     offset <- (i - 1) * 10000
     query_results <- iedbr::query_iedb_with_offset(
