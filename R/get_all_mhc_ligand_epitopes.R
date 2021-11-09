@@ -10,8 +10,15 @@
 #'    to get all epitopes from a T cell assay
 #' @examples
 #' if (pureseqtmr::is_on_ci()) {
-#'   get_all_mhc_ligand_epitopes()
-#'   get_all_mhc_ligand_epitopes(mhc_allele_name = "cs.{HLA-A*01:01}")
+#'   # There are a lot of MHC ligand epitopes,
+#'   # only look through the first 30k
+#'   get_all_mhc_ligand_epitopes(
+#'     max_n_queries = 3
+#'   )
+#'   get_all_mhc_ligand_epitopes(
+#'     mhc_allele_name = "cs.{HLA-A*01:01}",
+#'     max_n_queries = 3
+#'   )
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
