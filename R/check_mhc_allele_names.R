@@ -4,6 +4,7 @@
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
 #' @return nothing
+#' @seealso use \link{check_mhc_allele_name} to check an allele name
 #' @examples
 #' check_mhc_allele_names("cs.{HLA-A*01:01}")
 #' @author Richèl J.C. Bilderbeek

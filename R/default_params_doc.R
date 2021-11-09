@@ -7,7 +7,12 @@
 #' Possible value is "healthy"
 #' @param host_organism_iris the host.
 #' Possible value is "NCBITaxon:9606", which denotes Homo sapiens
+#' @param max_n_queries maximum number of queries.
+#' Use \link{Inf} to have no upper limit on this.
+#' Lower values are useful for debugging.
 #' @param mhc_allele_name name of an MHC allele
+#' @param mhc_allele_name_regex a regular expression for
+#' an MHC allele names
 #' @param mhc_allele_names names of one or more MHC allele names
 #' @param mhc_allele_names_regex a regular expression for
 #' a 'PostgREST' expression to select zero, one or more MHC allele names
@@ -49,7 +54,9 @@ default_params_doc <- function(
   assays,
   disease_names,
   host_organism_iris,
+  max_n_queries,
   mhc_allele_name,
+  mhc_allele_name_regex,
   mhc_allele_names,
   mhc_allele_names_regex,
   mhc_restriction,

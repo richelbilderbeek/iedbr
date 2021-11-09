@@ -7,6 +7,7 @@
 get_all_b_or_t_cell_epitopes(
   b_cell_or_t_cell,
   mhc_allele_names = "all",
+  max_n_queries = Inf,
   verbose = FALSE
 )
 }
@@ -15,6 +16,10 @@ get_all_b_or_t_cell_epitopes(
 and "t_cell" for T cells}
 
 \item{mhc_allele_names}{names of one or more MHC allele names}
+
+\item{max_n_queries}{maximum number of queries.
+Use \link{Inf} to have no upper limit on this.
+Lower values are useful for debugging.}
 
 \item{verbose}{set to \link{TRUE} for more output}
 }

@@ -16,11 +16,16 @@
 #' @export
 get_all_t_cell_epitopes <- function(
   mhc_allele_names = "all",
+  max_n_queries = Inf,
   verbose = FALSE
 ) {
-  iedbr::get_all_b_or_t_cell_epitopes(
+  epitopes <- iedbr::get_all_b_or_t_cell_epitopes(
     b_cell_or_t_cell = "t_cell",
     mhc_allele_names = mhc_allele_names,
+    max_n_queries = max_n_queries,
     verbose = verbose
   )
+  testthat::expect_true(is.character(epitopes))
+  testthat::expect_false(tibble::is_tibble(epitopes))
+  epitopes
 }

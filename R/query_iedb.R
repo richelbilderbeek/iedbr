@@ -13,10 +13,12 @@
 query_iedb <- function(
   query,
   table,
+  max_n_queries = Inf,
   verbose = FALSE
 ) {
   iedbr::check_query(query)
   iedbr::check_table(table)
+  iedbr::check_max_n_queries(max_n_queries)
   iedbr::check_verbose(verbose)
 
   # Let only 'query_iedb_with_offset' add the offset
@@ -44,7 +46,7 @@ query_iedb <- function(
         "resulted in ", nrow(query_resultses[[i]]), " hits"
       )
     }
-    if (nrow(query_resultses[[i]]) < 10000) {
+    if (nrow(query_resultses[[i]]) < 10000 || i == max_n_queries) {
       break
     }
     i <- i + 1

@@ -3,6 +3,8 @@
 export(check_disease_names)
 export(check_error_query_results)
 export(check_host_organism_iris)
+export(check_max_n_queries)
+export(check_mhc_allele_name)
 export(check_mhc_allele_names)
 export(check_offset)
 export(check_order)

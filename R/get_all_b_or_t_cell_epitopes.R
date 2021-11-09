@@ -15,6 +15,7 @@
 get_all_b_or_t_cell_epitopes <- function(
   b_cell_or_t_cell,
   mhc_allele_names = "all",
+  max_n_queries = Inf,
   verbose = FALSE
 ) {
   testthat::expect_equal(length(b_cell_or_t_cell), 1)
@@ -33,6 +34,7 @@ get_all_b_or_t_cell_epitopes <- function(
   }
   query_results <- iedbr::query_epitope_search(
     query = query,
+    max_n_queries = max_n_queries,
     verbose = verbose
   )
   tibble::deframe(query_results)

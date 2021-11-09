@@ -25,6 +25,9 @@ Will \link{stop} if not
 \examples{
 check_mhc_allele_names("cs.{HLA-A*01:01}")
 }
+\seealso{
+use \link{check_mhc_allele_name} to check an allele name
+}
 \author{
 Richèl J.C. Bilderbeek
 }

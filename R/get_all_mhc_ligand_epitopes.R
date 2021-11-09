@@ -17,10 +17,15 @@
 #' @export
 get_all_mhc_ligand_epitopes <- function(
   mhc_allele_name = "all",
+  max_n_queries = Inf,
   verbose = FALSE
 ) {
   host_organism_iris <- NULL; rm(host_organism_iris) # nolint, fixes warning: no visible binding for global variable
   source_organism_iris <- NULL; rm(source_organism_iris) # nolint, fixes warning: no visible binding for global variable
+
+  iedbr::check_mhc_allele_name(mhc_allele_name)
+  iedbr::check_max_n_queries(max_n_queries)
+  iedbr::check_verbose(verbose)
 
   query <- iedbr::create_healthy_human_query()
   query <- within(query, rm(host_organism_iris))
@@ -31,6 +36,7 @@ get_all_mhc_ligand_epitopes <- function(
   }
   query_results <- iedbr::query_mhc_search(
     query = query,
+    max_n_queries = max_n_queries,
     verbose = verbose
   )
   if (mhc_allele_name != "all") {
@@ -38,5 +44,8 @@ get_all_mhc_ligand_epitopes <- function(
       query_results$mhc_allele_name == mhc_allele_name,
     ]
   }
-  query_results
+  epitopes <- query_results$linear_sequence
+  testthat::expect_true(is.character(epitopes))
+  testthat::expect_false(tibble::is_tibble(epitopes))
+  epitopes
 }

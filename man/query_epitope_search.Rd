@@ -4,12 +4,16 @@
 \alias{query_epitope_search}
 \title{Query IEDB's \code{epitope_search} table}
 \usage{
-query_epitope_search(query, verbose = FALSE)
+query_epitope_search(query, max_n_queries = Inf, verbose = FALSE)
 }
 \arguments{
 \item{query}{an IEDB query,
 as created by, for example, \link{create_healthy_human_query}.
 Use \link{check_query} to check if the \code{query} is valid}
+
+\item{max_n_queries}{maximum number of queries.
+Use \link{Inf} to have no upper limit on this.
+Lower values are useful for debugging.}
 
 \item{verbose}{set to \link{TRUE} for more output}
 }

@@ -4,10 +4,18 @@
 \alias{get_all_mhc_ligand_epitopes}
 \title{Get all epitopes from an MHC ligand assay}
 \usage{
-get_all_mhc_ligand_epitopes(mhc_allele_name = "all", verbose = FALSE)
+get_all_mhc_ligand_epitopes(
+  mhc_allele_name = "all",
+  max_n_queries = Inf,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{mhc_allele_name}{name of an MHC allele}
+
+\item{max_n_queries}{maximum number of queries.
+Use \link{Inf} to have no upper limit on this.
+Lower values are useful for debugging.}
 
 \item{verbose}{set to \link{TRUE} for more output}
 }

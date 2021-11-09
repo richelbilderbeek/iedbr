@@ -4,7 +4,7 @@
 \alias{query_iedb}
 \title{Query the IEDB database}
 \usage{
-query_iedb(query, table, verbose = FALSE)
+query_iedb(query, table, max_n_queries = Inf, verbose = FALSE)
 }
 \arguments{
 \item{query}{an IEDB query,
@@ -13,6 +13,10 @@ Use \link{check_query} to check if the \code{query} is valid}
 
 \item{table}{a IEDB database table,
 as checked by \link{check_table}}
+
+\item{max_n_queries}{maximum number of queries.
+Use \link{Inf} to have no upper limit on this.
+Lower values are useful for debugging.}
 
 \item{verbose}{set to \link{TRUE} for more output}
 }
