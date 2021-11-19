@@ -54,4 +54,3 @@ test_that("Use case 1a", {
     table = "epitope_search"
   )
 })
-

@@ -14,7 +14,7 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-get_all_b_or_t_cell_epitopes_and_mhc_alleles <- function(
+get_all_b_or_t_cell_epitopes_and_mhc_alleles <- function( # nolint indeed a long function name
   b_cell_or_t_cell,
   max_n_queries = Inf,
   verbose = FALSE
