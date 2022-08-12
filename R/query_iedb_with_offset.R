@@ -44,7 +44,10 @@ query_iedb_with_offset <- function(
     }
   )
   # Too bad, cannot make that messy list into a tibble
-  if (length(query_results) == 1 && is.na(query_results)) {
+  if (!tibble::is_tibble(query_results) &&
+      length(query_results) == 1
+      && is.na(query_results)
+    ) {
     return(response_content)
   }
 
